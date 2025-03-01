@@ -125,8 +125,8 @@ export default function NotFound() {
               Under Construction
             </h1>
             <p className="text-white/80 text-lg mb-6">
-              We're working hard to bring you something amazing. This page is
-              currently being developed.
+              We&apos;re working hard to bring you something amazing. This page
+              is currently being developed.
             </p>
           </motion.div>
 
@@ -178,7 +178,7 @@ export default function NotFound() {
                   animate={{ opacity: 1 }}
                   className="text-green-400 text-sm text-center"
                 >
-                  Thank you! We'll notify you when we're ready.
+                  Thank you! We&apos;ll notify you when we&apos;re ready.
                 </motion.p>
               )}
             </form>
