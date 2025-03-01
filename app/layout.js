@@ -1,11 +1,18 @@
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const workSans = localFont({
+  src: "./fonts/Work.ttf",
+  variable: "--font-work-sans",
   weight: "100 900",
 });
+
+const oswaldSans = localFont({
+  src: "./fonts/Oswald.ttf",
+  variable: "--font-oswald-sans",
+  weight: "100 900",
+});
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -21,7 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${oswaldSans.variable} ${workSans.className} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
