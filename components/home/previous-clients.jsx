@@ -135,10 +135,10 @@ export default function ClientLogosSection() {
       <div className="container mx-auto px-4 mt-12">
         <div className="max-w-3xl mx-auto bg-gray-50 p-6 border-l-4 border-[#054177] shadow-sm">
           <p className="text-gray-700 italic">
-            "Our commitment to quality and exceptional service has made us the
+          &ldquo;Our commitment to quality and exceptional service has made us the
             preferred choice for luxury hotels, cruise lines, and high-end
             residential properties throughout South Florida. When you choose
-            American Glass Coatings, you're in good company."
+            American Glass Coatings, you&quot;re in good company.&ldquo;
           </p>
           <p className="text-right mt-4 text-[#054177] font-semibold">
             — American Glass Coatings Team

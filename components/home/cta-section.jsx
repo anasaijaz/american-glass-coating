@@ -61,7 +61,7 @@ export default function CTASection() {
 
             <p className="text-xl text-gray-100">
               Join thousands of satisfied customers who have enhanced their
-              properties with American Glass Coatings' premium window film
+              properties with American Glass Coating&quot;s premium window film
               solutions.
             </p>
 

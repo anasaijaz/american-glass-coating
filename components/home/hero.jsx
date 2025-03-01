@@ -102,7 +102,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className="mb-8 text-xl font-medium text-white md:text-2xl relative z-10">
-              South Florida's most trusted window film specialists for
+              South Florida&quot;s most trusted window film specialists for
               residential, commercial, and marine applications.
             </p>
             <div className="flex flex-wrap gap-4 relative z-10">

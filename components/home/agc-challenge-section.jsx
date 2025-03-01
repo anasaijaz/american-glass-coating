@@ -354,7 +354,7 @@ export default function AGCChallengeSection() {
                         transition={{ delay: 0.6 }}
                       >
                         Let us help turn your standard glass into
-                        "high-performance" glass
+                        &ldquo;high-performance&ldquo; glass
                       </motion.p>
                     </>
                   ) : (
@@ -363,9 +363,9 @@ export default function AGCChallengeSection() {
                       animate={{ opacity: 1, y: 0 }}
                     >
                       <p className="text-lg text-gray-700">
-                        While you may not have immediate concerns, we'd still
+                        While you may not have immediate concerns, we&quot;d still
                         love to show you how our solutions can enhance your
-                        property's comfort and value.
+                        property&quot;s comfort and value.
                       </p>
                       <Button
                         onClick={() => {
