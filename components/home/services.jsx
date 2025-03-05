@@ -19,7 +19,7 @@ export default function ServicesSection() {
 
   const services = [
     {
-      id: "commercial",
+      id: "commercial-window-film",
       title: "Commercial",
       description:
         "Businesses come in all shapes and sizes, and our experienced team has worked on projects ranging from single-room offices to skyscrapers. First and foremost, we're focused on reducing expenses and protecting your bottom line.",
@@ -47,7 +47,7 @@ export default function ServicesSection() {
       ),
     },
     {
-      id: "marine",
+      id: "marine-window-film",
       title: "Marine",
       description:
         "Adding a high-performance window film is the ideal way to improve your boat's comfort, privacy and style. American Glass Coatings will help reduce glare, block heat and protect the interior for any boat or marine craft. The open sea awaits!",
@@ -73,7 +73,7 @@ export default function ServicesSection() {
       ),
     },
     {
-      id: "residential",
+      id: "residential-window-film",
       title: "Residential",
       description:
         "Whether you're looking to reduce excess heat and/or fading, increased safety and security, or decorative touches to spruce up interior windows, American Glass Coatings has a wide variety of window film options for homeowners to consider.",
@@ -97,7 +97,7 @@ export default function ServicesSection() {
       ),
     },
     {
-      id: "motorcoach",
+      id: "motorcoach-window-film",
       title: "Motorcoach",
       description:
         "Window film is a true investment that improves both your motorcoach's value and the driving experience as a whole. Our window film options will allow you to enjoy top-notch comfort and privacy without closing the blinds, ensuring all of your guests can take in the sights.",
@@ -142,6 +142,9 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service) => (
             <motion.div
+              style={{
+                clipPath: "polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%)",
+              }}
               key={service.id}
               className="group relative bg-white  shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
               initial={{ opacity: 0, y: 20 }}
@@ -187,16 +190,6 @@ export default function ServicesSection() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </motion.div>
                 </Link>
-              </div>
-
-              {/* Decorative corner */}
-              <div className="absolute bottom-0 right-0 w-12 h-12 bg-white">
-                <div
-                  className="absolute bottom-0 right-0 w-12 h-12 bg-[#054177]"
-                  style={{
-                    clipPath: "polygon(100% 0, 0% 100%, 100% 100%)",
-                  }}
-                ></div>
               </div>
             </motion.div>
           ))}

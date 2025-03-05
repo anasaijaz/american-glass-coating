@@ -1,6 +1,4 @@
 "use client";
-
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -8,11 +6,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // FAQ data structured for SEO
 const faqs = [
   {
     category: "Window Film Benefits",
+    value: "benefits",
     questions: [
       {
         question: "How does window film reduce energy costs?",
@@ -33,6 +33,7 @@ const faqs = [
   },
   {
     category: "Installation & Maintenance",
+    value: "installation",
     questions: [
       {
         question: "How long does professional window film installation take?",
@@ -53,6 +54,7 @@ const faqs = [
   },
   {
     category: "Safety & Security",
+    value: "safety",
     questions: [
       {
         question: "How does window film protect against storms and break-ins?",
@@ -69,6 +71,7 @@ const faqs = [
   },
   {
     category: "Cost & Value",
+    value: "cost",
     questions: [
       {
         question: "What determines the cost of window film installation?",
@@ -91,8 +94,6 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const [activeCategory, setActiveCategory] = useState(faqs[0].category);
-
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
@@ -101,7 +102,7 @@ export default function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl font-semibold mb-4 font-oswald tracking-tighter">
             <span className="text-[#054177]">Frequently Asked</span>{" "}
@@ -116,65 +117,31 @@ export default function FAQSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Category Navigation */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="lg:sticky lg:top-24 lg:h-fit space-y-4"
-          >
-            <nav className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-semibold text-[#054177] mb-4 border-b border-gray-100 pb-2">
-                Browse Topics
-              </h3>
-              <ul className="space-y-2">
+        <div className="max-w-4xl mx-auto">
+          <Tabs defaultValue="benefits" className="w-full">
+            <div className="flex justify-center mb-8">
+              <TabsList className="grid grid-cols-2 md:grid-cols-4 bg-gray-100 p-1 rounded-lg">
                 {faqs.map((category) => (
-                  <li key={category.category}>
-                    <button
-                      onClick={() => setActiveCategory(category.category)}
-                      className={`w-full text-left px-4 py-3 rounded-md transition-all duration-200 ${
-                        activeCategory === category.category
-                          ? "bg-[#054177] text-white shadow-md"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-[#054177]"
-                      }`}
-                    >
-                      {category.category}
-                    </button>
-                  </li>
+                  <TabsTrigger
+                    key={category.value}
+                    value={category.value}
+                    className="data-[state=active]:bg-[#054177] data-[state=active]:text-white rounded-md px-4 py-2 transition-all duration-200"
+                  >
+                    {category.category}
+                  </TabsTrigger>
                 ))}
-              </ul>
-            </nav>
-
-            {/* SEO-friendly text snippet */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <p className="text-sm text-gray-600">
-                American Glass Coatings provides expert window film solutions in
-                South Florida. Our FAQ addresses common questions about energy
-                savings, UV protection, security features, and professional
-                installation services.
-              </p>
+              </TabsList>
             </div>
-          </motion.div>
 
-          {/* FAQ Accordion */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="lg:col-span-3"
-          >
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              {faqs.map((category) => (
-                <div
-                  key={category.category}
-                  className={
-                    activeCategory === category.category ? "" : "hidden"
-                  }
+            {faqs.map((category) => (
+              <TabsContent key={category.value} value={category.value}>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-xl shadow-lg p-6 md:p-8"
                 >
-                  <h3 className="text-2xl font-semibold text-[#054177] mb-6 border-b border-gray-100 pb-4">
+                  <h3 className="text-2xl font-semibold text-[#054177] mb-6 pb-4 border-b border-gray-100">
                     {category.category}
                   </h3>
                   <Accordion type="single" collapsible className="w-full">
@@ -184,12 +151,12 @@ export default function FAQSection() {
                         value={`item-${index}`}
                         className="border-b border-gray-100 last:border-0"
                       >
-                        <AccordionTrigger className="hover:no-underline py-4">
-                          <span className="text-left font-medium text-gray-900 hover:text-[#C03140] text-lg">
+                        <AccordionTrigger className="hover:no-underline py-4 group">
+                          <span className="text-left font-medium text-gray-900 group-hover:text-[#C03140] text-lg">
                             {faq.question}
                           </span>
                         </AccordionTrigger>
-                        <AccordionContent>
+                        <AccordionContent className="pt-2 pb-6">
                           <div className="prose prose-gray max-w-none">
                             <p className="text-gray-700 leading-relaxed">
                               {faq.answer}
@@ -199,10 +166,10 @@ export default function FAQSection() {
                       </AccordionItem>
                     ))}
                   </Accordion>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                </motion.div>
+              </TabsContent>
+            ))}
+          </Tabs>
         </div>
       </div>
 

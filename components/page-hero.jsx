@@ -38,7 +38,7 @@ export default function PageHero({
       {/* Content */}
       <div className="relative h-full flex items-center">
         <div className="container mx-auto px-6">
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -53,7 +53,7 @@ export default function PageHero({
 
             {/* CTA Buttons */}
             {ctaButtons && ctaButtons.length > 0 && (
-              <motion.div
+              <div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -75,9 +75,9 @@ export default function PageHero({
                     {button.text}
                   </Link>
                 ))}
-              </motion.div>
+              </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
 
