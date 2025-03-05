@@ -108,9 +108,10 @@ export default function MarineWindowFilm() {
               <div className="prose prose-lg max-w-none text-gray-600">
                 <p>
                   Windows are considered to be one of the most important yet
-                  most overlooked components of yachts. American Glass Coatings'
-                  window films offer a cooler cabin environment and maintain
-                  visibility through your yacht&apos;s windows at night.
+                  most overlooked components of yachts. American Glass
+                  Coatings&apos; window films offer a cooler cabin environment
+                  and maintain visibility through your yacht&apos;s windows at
+                  night.
                 </p>
                 <p>
                   The marine environment is one of the harshest on fixtures,
@@ -242,9 +243,9 @@ export default function MarineWindowFilm() {
               Our Trusted Associations
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              We&apos;re proud to be associated with leading industry organizations
-              that maintain the highest standards in marine window film
-              installation.
+              We&apos;re proud to be associated with leading industry
+              organizations that maintain the highest standards in marine window
+              film installation.
             </p>
           </motion.div>
 
