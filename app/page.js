@@ -6,7 +6,6 @@ import Hero from "@/components/home/hero";
 import ClientLogosSection from "@/components/home/previous-clients";
 import ServicesSection from "@/components/home/services";
 import Navbar from "@/components/navbar";
-import Image from "next/image";
 
 export default function Home() {
   return (
