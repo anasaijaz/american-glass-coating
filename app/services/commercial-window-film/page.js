@@ -234,7 +234,7 @@ export default function CommercialWindowFilm() {
               Our Trusted Associations
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              We're proud to be associated with leading industry organizations
+              We&apos;re proud to be associated with leading industry organizations
               that maintain the highest standards in window film installation.
             </p>
           </motion.div>

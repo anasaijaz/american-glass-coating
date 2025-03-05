@@ -93,7 +93,7 @@ export default function Hero() {
             ))}
           </div>
           <p className="text-white text-sm">
-            "Rated 5 stars on Google by our satisfied customers"
+          &apos;Rated 5 stars on Google by our satisfied customers&apos;
           </p>
         </div>
       </Link>

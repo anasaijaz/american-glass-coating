@@ -110,13 +110,13 @@ export default function MarineWindowFilm() {
                   Windows are considered to be one of the most important yet
                   most overlooked components of yachts. American Glass Coatings'
                   window films offer a cooler cabin environment and maintain
-                  visibility through your yacht's windows at night.
+                  visibility through your yacht&apos;s windows at night.
                 </p>
                 <p>
                   The marine environment is one of the harshest on fixtures,
                   surfaces and coatings of yachts, boats or cruise vessels. Our
                   specialized window films are ideal ways to improve your
-                  vessel's style, comfort, privacy and safety.
+                  vessel&apos;s style, comfort, privacy and safety.
                 </p>
               </div>
             </motion.div>
@@ -242,7 +242,7 @@ export default function MarineWindowFilm() {
               Our Trusted Associations
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              We're proud to be associated with leading industry organizations
+              We&apos;re proud to be associated with leading industry organizations
               that maintain the highest standards in marine window film
               installation.
             </p>

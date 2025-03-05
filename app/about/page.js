@@ -96,7 +96,7 @@ export default function AboutPage() {
                   Based in South Florida, the American Glass Coatings team has
                   been proudly serving customers for over 35 years. From
                   residential and commercial, to marine and recreational
-                  vehicles, AGC's experienced team uses nothing but the highest
+                  vehicles, AGC&apos;s experienced team uses nothing but the highest
                   quality products on all projects.
                 </p>
                 <p className="text-gray-600 leading-relaxed">

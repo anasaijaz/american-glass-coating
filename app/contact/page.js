@@ -270,7 +270,7 @@ export default function ContactPage() {
                       animate={{ opacity: 1 }}
                       className="text-green-600 text-center"
                     >
-                      Thank you for your message! We'll get back to you soon.
+                      Thank you for your message! We&apos;ll get back to you soon.
                     </motion.p>
                   )}
                 </form>
