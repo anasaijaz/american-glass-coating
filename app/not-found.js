@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, ArrowLeft, Hammer, Wrench, HardHat } from "lucide-react";
@@ -18,7 +18,7 @@ export default function NotFound() {
   });
 
   // Set your launch date here
-  useEffect(() => {
+  useLayoutEffect(() => {
     const launchDate = new Date("2025-03-28").getTime(); // Change this to your actual launch date
 
     const timer = setInterval(() => {
