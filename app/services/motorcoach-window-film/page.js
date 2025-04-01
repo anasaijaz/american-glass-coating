@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/page-hero";
+import HeroJPG from "@/assets/home/motorcoach.png";
 
 const benefits = [
   {
@@ -91,7 +92,7 @@ export default function MotorcoachWindowFilm() {
       <PageHero
         title="Motorcoach Window Film Solutions"
         subtitle="Enhance comfort and protection for your home away from home"
-        backgroundImage="https://picsum.photos/1920/1080?random=50"
+        backgroundImage={HeroJPG}
         ctaButtons={[
           {
             text: "GET A FREE QUOTE",
@@ -121,8 +122,8 @@ export default function MotorcoachWindowFilm() {
               <div className="prose prose-lg max-w-none text-gray-600">
                 <p>
                   Window film is a true investment that improves both your
-                  motorcoach&apos;s value and the driving experience as a whole. On
-                  average, motorcoach owners spend over five weeks and 2,700
+                  motorcoach&apos;s value and the driving experience as a whole.
+                  On average, motorcoach owners spend over five weeks and 2,700
                   miles in their RV each year.
                 </p>
                 <p>

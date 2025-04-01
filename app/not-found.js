@@ -1,42 +1,15 @@
 "use client";
 
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, ArrowLeft, Hammer, Wrench, HardHat } from "lucide-react";
+import { Mail, Search, Home, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function NotFound() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  // Set your launch date here
-  useLayoutEffect(() => {
-    const launchDate = new Date("2025-03-28").getTime(); // Change this to your actual launch date
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
-
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        ),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000),
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
@@ -65,9 +38,9 @@ export default function NotFound() {
   };
 
   const iconVariants = {
-    initial: { rotate: 0 },
+    initial: { scale: 1 },
     animate: {
-      rotate: [0, -45, 45, 0],
+      scale: [1, 1.1, 1],
       transition: {
         duration: 2,
         repeat: Number.POSITIVE_INFINITY,
@@ -76,6 +49,14 @@ export default function NotFound() {
       },
     },
   };
+
+  // Popular pages for quick navigation
+  const popularPages = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#054177] to-[#032444] flex items-center justify-center p-4">
@@ -94,72 +75,61 @@ export default function NotFound() {
         className="relative max-w-4xl w-full mx-auto"
       >
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl border border-white/20">
-          {/* Construction Icons */}
+          {/* 404 Icon */}
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-4">
             <motion.div
               variants={iconVariants}
               initial="initial"
-              className="bg-[#C03140] p-3 rounded-full shadow-lg"
-            >
-              <Hammer className="h-6 w-6 text-white" />
-            </motion.div>
-            <motion.div
-              variants={iconVariants}
-              initial="initial"
               animate="animate"
-              className="bg-[#054177] p-3 rounded-full shadow-lg"
-            >
-              <Wrench className="h-6 w-6 text-white" />
-            </motion.div>
-            <motion.div
-              variants={iconVariants}
-              initial="initial"
               className="bg-[#C03140] p-3 rounded-full shadow-lg"
             >
-              <HardHat className="h-6 w-6 text-white" />
+              <Search className="h-6 w-6 text-white" />
             </motion.div>
           </div>
 
           <motion.div variants={itemVariants} className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Under Construction
+            <h1 className="text-7xl md:text-8xl font-bold text-white mb-4">
+              404
             </h1>
+            <h2 className="text-2xl md:text-3xl font-semibold text-white/90 mb-4">
+              Page Not Found
+            </h2>
             <p className="text-white/80 text-lg mb-6">
-              We&apos;re working hard to bring you something amazing. This page
-              is currently being developed.
+              The page you&apos;re looking for doesn&apos;t exist or has been
+              moved.
             </p>
           </motion.div>
 
-          {/* Countdown Timer */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
-          >
-            {[
-              { label: "Days", value: timeLeft.days },
-              { label: "Hours", value: timeLeft.hours },
-              { label: "Minutes", value: timeLeft.minutes },
-              { label: "Seconds", value: timeLeft.seconds },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="bg-white/5 backdrop-blur-sm rounded-lg p-4 text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
-                  {item.value}
-                </div>
-                <div className="text-white/60 text-sm">{item.label}</div>
-              </div>
-            ))}
+          {/* Quick Links */}
+          <motion.div variants={itemVariants} className="mb-8">
+            <h3 className="text-white/90 text-center mb-4">
+              Popular Destinations
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {popularPages.map((page) => (
+                <Link
+                  key={page.name}
+                  href={page.href}
+                  className="bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center transition-all duration-300 group"
+                >
+                  <div className="text-white font-medium group-hover:text-[#C03140] transition-colors">
+                    {page.name}
+                  </div>
+                </Link>
+              ))}
+            </div>
           </motion.div>
 
           {/* Notification Form */}
           <motion.div variants={itemVariants} className="max-w-md mx-auto mb-8">
+            <h3 className="text-white/90 text-center mb-4">
+              Subscribe to our newsletter
+            </h3>
             <form onSubmit={handleSubscribe} className="space-y-4">
               <div className="flex gap-2">
                 <Input
                   type="email"
-                  placeholder="Enter your email for updates"
+                  placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
@@ -178,7 +148,7 @@ export default function NotFound() {
                   animate={{ opacity: 1 }}
                   className="text-green-400 text-sm text-center"
                 >
-                  Thank you! We&apos;ll notify you when we&apos;re ready.
+                  Thank you for subscribing to our newsletter!
                 </motion.p>
               )}
             </form>
@@ -188,28 +158,34 @@ export default function NotFound() {
           <motion.div variants={itemVariants} className="text-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-white hover:text-[#C03140] transition-colors font-medium"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <Home className="h-5 w-5" />
               <span>Return to Homepage</span>
             </Link>
           </motion.div>
 
-          {/* Progress Bar */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 bg-white/10 rounded-full h-2 overflow-hidden"
-          >
-            <motion.div
-              className="h-full bg-gradient-to-r from-[#C03140] to-[#054177]"
-              initial={{ width: 0 }}
-              animate={{ width: "15%" }}
-              transition={{ duration: 2, ease: "easeOut" }}
-            />
+          {/* Service Areas */}
+          <motion.div variants={itemVariants} className="mt-8 text-center">
+            <div className="flex flex-wrap justify-center gap-2 text-white/60 text-xs">
+              <span className="flex items-center">
+                <MapPin className="h-3 w-3 mr-1" />
+                Serving:
+              </span>
+              {[
+                "Palm Beach",
+                "Boca Raton",
+                "Wellington",
+                "Jupiter",
+                "South Florida",
+              ].map((area, index) => (
+                <span key={area}>
+                  {area}
+                  {index < 4 ? " •" : ""}
+                </span>
+              ))}
+            </div>
           </motion.div>
-          <div className="text-center mt-2">
-            <span className="text-white/60 text-sm">75% Complete</span>
-          </div>
         </div>
       </motion.div>
     </div>

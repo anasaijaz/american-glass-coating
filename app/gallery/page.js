@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ReactCompareImage from "react-compare-image";
 import {
   Building2,
   Home,
@@ -15,6 +14,8 @@ import PageHero from "@/components/page-hero";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import projects from "@/lib/stuart-projects.js";
+import HeroJPG from "@/assets/stuart-project/boca_polo_club/20190131_101200.jpg";
+import Image from "next/image";
 
 // Update the categories to be more generic since we don't have specific categories in the new data
 const categories = [
@@ -36,7 +37,7 @@ export default function GalleryPage() {
       <PageHero
         title="Our Work"
         subtitle="Explore our portfolio of premium window film installations"
-        backgroundImage="https://picsum.photos/1920/1080?random=10"
+        backgroundImage={HeroJPG}
         ctaButtons={[
           {
             text: "GET A FREE QUOTE",
@@ -59,25 +60,21 @@ export default function GalleryPage() {
                 className="bg-white shadow-md overflow-hidden border border-gray-200 flex flex-col"
               >
                 {/* Project Header */}
-                <div className="bg-[#054177] text-white p-3">
+                <div className="bg-[#054177] rounded-sm text-white p-3">
                   <h2 className="text-lg font-bold truncate">
                     {project.title}
                   </h2>
                 </div>
 
-                {/* Before & After Comparison */}
+                {/* Project Image */}
                 <div className="p-3 border-b border-gray-200 flex-grow">
                   <div className="relative h-[200px] overflow-hidden mb-3">
-                    <ReactCompareImage
-                      leftImage={project.before.src}
-                      rightImage={project.after.src}
-                      sliderPositionPercentage={0.5}
-                      handleSize={30}
+                    <Image
+                      src={project.after || "/placeholder.svg"}
+                      alt={project.title}
+                      className="object-cover w-full h-full"
                     />
                   </div>
-                  <p className="text-gray-600 text-sm line-clamp-3 mb-3">
-                    {project.description}
-                  </p>
 
                   {/* Thumbnail Grid */}
                   <div className="grid grid-cols-4 gap-1 mb-3">
@@ -86,8 +83,8 @@ export default function GalleryPage() {
                         key={imageIndex}
                         className="relative aspect-square overflow-hidden"
                       >
-                        <img
-                          src={image.src || "/placeholder.svg"}
+                        <Image
+                          src={image || "/placeholder.svg"}
                           alt={`Thumbnail ${imageIndex + 1}`}
                           className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
                         />
@@ -100,7 +97,7 @@ export default function GalleryPage() {
                 <div className="px-3 py-2 bg-gray-50 flex justify-between items-center">
                   <a
                     href="/contact"
-                    className="inline-flex items-center justify-center rounded-none bg-[#C03140] px-3 py-1 text-xs font-medium text-white shadow transition-colors hover:bg-[#C03140]/90"
+                    className="inline-flex items-center justify-center rounded-sm bg-[#C03140] px-3 py-1 text-xs font-medium text-white shadow transition-colors hover:bg-[#C03140]/90"
                   >
                     Get a Quote
                   </a>

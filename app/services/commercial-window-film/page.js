@@ -5,6 +5,8 @@ import { Shield, Zap, Sun, Building2, CheckCircle2, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/page-hero";
+import HeroJPG from "@/assets/stuart-project/palm_beach/20181115_134532.jpg";
+import ImagePNG from "@/assets/stuart-project/biotest/20181010_093500.jpg";
 
 const benefits = [
   {
@@ -61,7 +63,7 @@ export default function CommercialWindowFilm() {
       <PageHero
         title="Commercial Window Film Installation"
         subtitle="Professional window tinting solutions for commercial buildings and offices"
-        backgroundImage="https://picsum.photos/1920/1080?random=20"
+        backgroundImage={HeroJPG}
         ctaButtons={[
           {
             text: "GET A FREE QUOTE",
@@ -111,7 +113,7 @@ export default function CommercialWindowFilm() {
               className="relative aspect-video rounded-lg overflow-hidden shadow-xl"
             >
               <Image
-                src="https://picsum.photos/800/450?random=21"
+                src={ImagePNG}
                 alt="Commercial window tinting installation"
                 fill
                 className="object-cover"
@@ -234,8 +236,9 @@ export default function CommercialWindowFilm() {
               Our Trusted Associations
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              We&apos;re proud to be associated with leading industry organizations
-              that maintain the highest standards in window film installation.
+              We&apos;re proud to be associated with leading industry
+              organizations that maintain the highest standards in window film
+              installation.
             </p>
           </motion.div>
 

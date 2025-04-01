@@ -16,6 +16,12 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/page-hero";
+import HeroJPG from "@/assets/stuart-project/biotest/20181010_093500.jpg";
+
+import Image1 from "@/assets/stuart-project/biotest/20181010_093500.jpg";
+import Image2 from "@/assets/stuart-project/jensen_beach_storefront/20180721_085553.jpg";
+import Image3 from "@/assets/stuart-project/house_of_tequest/20180329_162103.jpg";
+import Image4 from "@/assets/stuart-project/pbg/20181129_104710.jpg";
 
 const filmTypes = [
   {
@@ -24,7 +30,7 @@ const filmTypes = [
     description:
       "Premium solar control and UV protection window films for enhanced comfort and protection.",
     icon: Sun,
-    image: "https://picsum.photos/600/400?random=60",
+    image: Image1,
     benefits: [
       "Reduces cooling costs up to 30%",
       "Blocks 99% of harmful UV rays",
@@ -47,11 +53,11 @@ const filmTypes = [
         icon: Sailboat,
         description: "Suitable for boats and yachts",
       },
-      {
-        type: "Motorcoach",
-        icon: Bus,
-        description: "Great for RVs and motorcoaches",
-      },
+      // {
+      //   type: "Motorcoach",
+      //   icon: Bus,
+      //   description: "Great for RVs and motorcoaches",
+      // },
     ],
   },
   {
@@ -60,7 +66,7 @@ const filmTypes = [
     description:
       "Advanced security window films that protect against break-ins, accidents, and severe weather.",
     icon: Shield,
-    image: "https://picsum.photos/600/400?random=61",
+    image: Image2,
     benefits: [
       "Strengthens windows against impacts",
       "Holds shattered glass together",
@@ -96,7 +102,7 @@ const filmTypes = [
     description:
       "Sacrificial window films that protect glass surfaces from vandalism and damage.",
     icon: PaintBucket,
-    image: "https://picsum.photos/600/400?random=62",
+    image: Image3,
     benefits: [
       "Easy to remove and replace",
       "Protects against scratches",
@@ -122,7 +128,7 @@ const filmTypes = [
     description:
       "Aesthetic window films that enhance privacy and add style to any space.",
     icon: Palette,
-    image: "https://picsum.photos/600/400?random=63",
+    image: Image4,
     benefits: [
       "Enhanced privacy",
       "Custom designs available",
@@ -155,7 +161,7 @@ export default function FilmTypes() {
       <PageHero
         title="Window Film Solutions"
         subtitle="Discover our comprehensive range of premium window films"
-        backgroundImage="https://picsum.photos/1920/1080?random=64"
+        backgroundImage={HeroJPG}
         ctaButtons={[
           {
             text: "GET A FREE QUOTE",
@@ -197,6 +203,7 @@ export default function FilmTypes() {
           <div className="space-y-32">
             {filmTypes.map((film, index) => (
               <motion.div
+                id={film.id}
                 key={film.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

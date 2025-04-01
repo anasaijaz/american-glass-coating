@@ -63,20 +63,20 @@ const services = [
       "Salt Water Resistant",
     ],
   },
-  {
-    id: "motorcoach-window-film",
-    title: "Motorcoach Window Film",
-    description:
-      "Enhance your motorcoach experience with our premium window films. Enjoy reduced heat, improved privacy, and protection from harmful UV rays while maintaining clear views.",
-    icon: Bus,
-    image: MotorCoachPNG,
-    benefits: [
-      "Temperature Control",
-      "Privacy",
-      "UV Protection",
-      "Glare Reduction",
-    ],
-  },
+  // {
+  //   id: "motorcoach-window-film",
+  //   title: "Motorcoach Window Film",
+  //   description:
+  //     "Enhance your motorcoach experience with our premium window films. Enjoy reduced heat, improved privacy, and protection from harmful UV rays while maintaining clear views.",
+  //   icon: Bus,
+  //   image: MotorCoachPNG,
+  //   benefits: [
+  //     "Temperature Control",
+  //     "Privacy",
+  //     "UV Protection",
+  //     "Glare Reduction",
+  //   ],
+  // },
 ];
 
 const features = [
@@ -167,7 +167,7 @@ export default function ServicesPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -175,10 +175,10 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative"
+                className="group relative h-full"
               >
                 <Link href={`/services/${service.id}`}>
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-xl">
+                  <div className="bg-white rounded-lg h-full shadow-lg overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-xl">
                     {/* Image Section */}
                     <div className="relative h-64">
                       <Image
@@ -199,11 +199,11 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Content Section */}
-                    <div className="p-6">
+                    <div className="p-6 h-full">
                       <p className="text-gray-600 mb-6">
                         {service.description}
                       </p>
-                      <div className="space-y-3">
+                      <div className="space-y-3 flex-grow">
                         <h4 className="font-semibold text-[#054177]">
                           Key Benefits:
                         </h4>

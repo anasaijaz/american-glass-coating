@@ -62,8 +62,12 @@ export default function Hero() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Google Rating Widget */}
-      <Link href="https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" target="_blank">
-        <div className="absolute top-24 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-3 shadow-xl max-w-[220px]">
+      <Link
+        className="md:block hidden"
+        href="https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA"
+        target="_blank"
+      >
+        <div className="absolute top-24 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-3 shadow-xl max-w-[220px] md:max-w-[220px]  sm:right-6 ">
           <div className="flex items-center justify-between mb-1">
             <div className="flex items-center">
               <svg
@@ -76,15 +80,19 @@ export default function Hero() {
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
               </svg>
-              <span className="ml-1 text-white font-medium">Google</span>
+              <span className="ml-1 text-white font-medium text-xs sm:text-sm">
+                Google
+              </span>
             </div>
-            <div className="text-white text-xs font-medium">20+ Reviews</div>
+            <div className="text-white text-xs font-medium hidden sm:block">
+              20+ Reviews
+            </div>
           </div>
           <div className="flex items-center mb-1">
             {[...Array(5)].map((_, i) => (
               <svg
                 key={i}
-                className="h-4 w-4 text-yellow-400"
+                className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -92,8 +100,8 @@ export default function Hero() {
               </svg>
             ))}
           </div>
-          <p className="text-white text-sm">
-          &apos;Rated 5 stars on Google by our satisfied customers&apos;
+          <p className="text-white text-xs sm:text-sm">
+            &apos;Rated 5 stars on Google by our satisfied customers&apos;
           </p>
         </div>
       </Link>
@@ -125,33 +133,28 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-10 flex h-full min-h-[90vh] items-center">
-        <div className="container mx-auto px-6">
-          <div
-            className="glare-container max-w-3xl bg-black/75 p-8 relative overflow-hidden"
-            style={{
-              clipPath: "polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)",
-            }}
-          >
-            <h1 className="mb-6 text-5xl font-oswald font-extrabold tracking-tight text-white md:text-7xl relative z-10">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="glare-container max-w-3xl bg-black/75 p-4 sm:p-6 md:p-8 relative overflow-hidden hero-container">
+            <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-oswald font-extrabold tracking-tight text-white relative z-10">
               PREMIUM GLASS COATINGS
-              <span className="mt-2 block text-[#C03140]">
-                FOR OVER 35 YEARS
+              <span className="mt-1 sm:mt-2 block text-[#C03140]">
+                FOR OVER 45 YEARS
               </span>
             </h1>
-            <p className="mb-8 text-xl font-medium text-white md:text-2xl relative z-10">
+            <p className="mb-4 sm:mb-8 text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-white relative z-10">
               South Florida&quot;s most trusted window film specialists for
               residential, commercial, and marine applications.
             </p>
-            <div className="flex flex-wrap gap-4 relative z-10">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 relative z-10">
               <Link
                 href="/contact"
-                className="inline-flex h-14 items-center justify-center rounded-md bg-[#C03140] px-8 text-lg font-bold text-white transition-colors hover:bg-red-700"
+                className="inline-flex h-12 sm:h-14 items-center justify-center rounded-md bg-[#C03140] px-4 sm:px-8 text-base sm:text-lg font-bold text-white transition-colors hover:bg-red-700 w-full sm:w-auto"
               >
                 GET A FREE QUOTE
               </Link>
               <Link
                 href="/services"
-                className="inline-flex h-14 items-center justify-center rounded-md border-2 border-white bg-transparent px-8 text-lg font-bold text-white transition-colors hover:bg-white hover:text-[#054177]"
+                className="inline-flex h-12 sm:h-14 items-center justify-center rounded-md border-2 border-white bg-transparent px-4 sm:px-8 text-base sm:text-lg font-bold text-white transition-colors hover:bg-white hover:text-[#054177] w-full sm:w-auto"
               >
                 EXPLORE SERVICES
               </Link>
@@ -161,38 +164,40 @@ export default function Hero() {
       </div>
 
       {/* Slide Info and Navigation */}
-      <div className="absolute text-right bottom-20 right-6 z-20 flex flex-col items-end space-y-2">
-        <div className="p-3 rounded-lg max-w-xs">
-          <h3 className="text-white font-bold">{slides[currentIndex].title}</h3>
-          <p className="text-white/80 text-sm min-h-14">
+      <div className="absolute text-right bottom-20 right-4 sm:right-6 z-20 flex flex-col items-end space-y-2">
+        <div className="p-2 sm:p-3 rounded-lg max-w-[250px] sm:max-w-xs">
+          <h3 className="text-white font-bold text-sm sm:text-base">
+            {slides[currentIndex].title}
+          </h3>
+          <p className="text-white/80 text-xs sm:text-sm min-h-8 sm:min-h-14">
             {slides[currentIndex].description}
           </p>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 sm:space-x-4">
           <button
             onClick={handlePrevious}
-            className="rounded-full p-2 bg-black/50 text-white hover:bg-black/70 transition-colors"
+            className="rounded-full p-1 sm:p-2 bg-black/50 text-white hover:bg-black/70 transition-colors"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
 
           <button
             onClick={handleNext}
-            className="rounded-full p-2 bg-black/50 text-white hover:bg-black/70 transition-colors"
+            className="rounded-full p-1 sm:p-2 bg-black/50 text-white hover:bg-black/70 transition-colors"
             aria-label="Next slide"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
         </div>
       </div>
 
       {/* Service Areas Banner */}
-      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 py-4">
-        <div className="container mx-auto px-6">
-          <p className="text-center font-medium text-white">
-            Serving Palm Beach, Boca Raton, Wellington, Jupiter, and all of
-            South Florida
+      <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 py-2 sm:py-4">
+        <div className="container mx-auto px-4 sm:px-6">
+          <p className="text-center font-medium text-white text-xs sm:text-sm md:text-base">
+            Proudly serving the state of Florida with dedication and excellence
+            for over 45 years.
           </p>
         </div>
       </div>
@@ -237,6 +242,13 @@ export default function Hero() {
 
         .absolute.top-24.right-6 {
           transform-origin: center;
+        }
+
+        /* Only apply clip-path on medium screens and above */
+        @media (min-width: 768px) {
+          .hero-container {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+          }
         }
       `}</style>
     </div>

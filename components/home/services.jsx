@@ -96,32 +96,6 @@ export default function ServicesSection() {
         </svg>
       ),
     },
-    {
-      id: "motorcoach-window-film",
-      title: "Motorcoach",
-      description:
-        "Window film is a true investment that improves both your motorcoach's value and the driving experience as a whole. Our window film options will allow you to enjoy top-notch comfort and privacy without closing the blinds, ensuring all of your guests can take in the sights.",
-      image: MotorCoachPNG,
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="h-6 w-6"
-        >
-          <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.6-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2" />
-          <circle cx="7" cy="17" r="2" />
-          <path d="M9 17h6" />
-          <circle cx="17" cy="17" r="2" />
-        </svg>
-      ),
-    },
   ];
 
   return (
@@ -134,19 +108,19 @@ export default function ServicesSection() {
           </h2>
           <div className="w-24 h-1 bg-[#C03140] mx-auto mb-6"></div>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            With over 35 years of experience, American Glass Coatings provides
+            With over 45 years of experience, American Glass Coatings provides
             expert window film solutions for all your needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <motion.div
               style={{
                 clipPath: "polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%)",
               }}
               key={service.id}
-              className="group relative bg-white  shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+              className="group relative bg-white border border-[#054177] shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -154,6 +128,9 @@ export default function ServicesSection() {
               onHoverStart={() => setActiveService(service.id)}
               onHoverEnd={() => setActiveService(null)}
             >
+              {/* Bottom-right corner fix */}
+              <div className="absolute -bottom-[10px] rotate-[127deg] -right-[20px] w-10 h-6 border-b border-r bg-[#054177] border-[#054177]"></div>
+
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={service.image || "/placeholder.svg"}

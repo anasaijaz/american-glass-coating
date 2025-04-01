@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import PageHero from "@/components/page-hero";
 import HeroJPG from "@/assets/contact/hero.jpg";
 
-export default function ContactPage() {
+export default function ContactPageComponent() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -56,128 +56,112 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -15 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
+              transition={{ duration: 0.5 }}
+              className="space-y-6"
             >
               <div>
-                <h2 className="text-3xl font-bold text-[#054177] mb-6">
+                <h2 className="text-2xl font-bold text-[#054177] mb-4">
                   Get In Touch
                 </h2>
-                <p className="text-gray-600 mb-8">
-                  For a no cost evaluation, please fill out the form or give us
-                  a call.
+                <p className="text-gray-600 text-sm">
+                  For a no-cost evaluation, fill out the form or call us.
                 </p>
               </div>
 
-              <div className="grid gap-6">
-                {/* Phone */}
-                <motion.a
-                  whileHover={{ scale: 1.02 }}
-                  href="tel:+15615414005"
-                  className="flex items-start gap-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all border border-gray-100"
-                >
-                  <div className="bg-[#C03140] p-4 rounded-full">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#054177] text-lg mb-1">
-                      Phone
-                    </h3>
-                    <p className="text-gray-600 text-lg">+1 (561) 541 4005</p>
-                  </div>
-                </motion.a>
-
-                {/* Email */}
-                <motion.a
-                  whileHover={{ scale: 1.02 }}
-                  href="mailto:ssmith@americanglasscoatings.com"
-                  className="flex items-start gap-4 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all border border-gray-100"
-                >
-                  <div className="bg-[#C03140] p-4 rounded-full">
-                    <Mail className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#054177] text-lg mb-1">
-                      Email
-                    </h3>
-                    <p className="text-gray-600 text-lg">
-                      ssmith@americanglasscoatings.com
-                    </p>
-                  </div>
-                </motion.a>
-
-                {/* Address */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-start gap-4 p-6 rounded-xl bg-white shadow-lg border border-gray-100"
-                >
-                  <div className="bg-[#C03140] p-4 rounded-full">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#054177] text-lg mb-1">
-                      Address
-                    </h3>
-                    <p className="text-gray-600 text-lg">
-                      2129 SW Olympic Club Ter
-                      <br />
-                      Palm City, FL 34990
-                    </p>
-                  </div>
-                </motion.div>
-
-                {/* Hours */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-start gap-4 p-6 rounded-xl bg-white shadow-lg border border-gray-100"
-                >
-                  <div className="bg-[#C03140] p-4 rounded-full">
-                    <Clock className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[#054177] text-lg mb-1">
-                      Business Hours
-                    </h3>
-                    <p className="text-gray-600 text-lg">
-                      Monday - Friday: 8AM - 6PM
-                      <br />
-                      Saturday: 9AM - 2PM
-                      <br />
-                      Sunday: Closed
-                    </p>
-                  </div>
-                </motion.div>
+              <div className="grid gap-4">
+                {/* Contact Items */}
+                {[
+                  {
+                    href: "tel:+17728880866",
+                    icon: Phone,
+                    title: "Palm City",
+                    value: "+1 (772) 888-0866",
+                  },
+                  {
+                    href: "tel:+15615414005",
+                    icon: Phone,
+                    title: "North Palm Beach",
+                    value: "+1 (561) 541-4005",
+                  },
+                  {
+                    href: "mailto:ssmith@americanglasscoatings.com",
+                    icon: Mail,
+                    title: "Email",
+                    value: "ssmith@americanglasscoatings.com",
+                  },
+                  {
+                    icon: Clock,
+                    title: "Business Hours",
+                    value: "Mon-Fri: 8AM - 6PM\nSat: 9AM - 2PM\nSun: Closed",
+                  },
+                ].map(({ href, icon: Icon, title, value, external }, i) => (
+                  <motion.a
+                    key={i}
+                    whileHover={{ scale: 1.02 }}
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="flex items-start gap-3 p-4 rounded-lg bg-white shadow hover:shadow-md transition border border-gray-200"
+                  >
+                    <div className="bg-[#C03140] p-2.5 rounded-full">
+                      <Icon className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-[#054177] font-medium text-sm">
+                        {title}
+                      </h3>
+                      <p className="text-gray-600 text-xs whitespace-pre-line">
+                        {value}
+                      </p>
+                    </div>
+                  </motion.a>
+                ))}
               </div>
 
-              {/* Additional Info Card */}
+              {/* Mobile Service Info */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="mt-6 p-6 bg-[#054177]/10 rounded-lg border border-[#054177]/20"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-[#C03140] p-2 rounded-full">
+                    <MapPin className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="text-[#054177] font-medium">Mobile Service</h3>
+                </div>
+                <p className="text-gray-600 text-sm">
+                  We are a mobile service covering South Florida. Our
+                  professional team comes to your location for consultation and
+                  installation, saving you time and hassle.
+                </p>
+              </motion.div>
+
+              {/* Info Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mt-8 p-6 bg-[#054177]/5 rounded-xl border border-[#054177]/10"
+                className="mt-6 p-4 bg-[#054177]/5 rounded-lg border border-[#054177]/10"
               >
-                <h3 className="text-[#054177] font-semibold mb-3">
-                  Why Choose American Glass Coatings?
+                <h3 className="text-[#054177] font-medium text-sm mb-2">
+                  Why Choose Us?
                 </h3>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2 text-gray-600">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#C03140]" />
-                    Over 35 years of experience
-                  </li>
-                  <li className="flex items-center gap-2 text-gray-600">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#C03140]" />
-                    Professional, certified installers
-                  </li>
-                  <li className="flex items-center gap-2 text-gray-600">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#C03140]" />
-                    Premium quality materials
-                  </li>
-                  <li className="flex items-center gap-2 text-gray-600">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#C03140]" />
-                    Lifetime warranty available
-                  </li>
+                <ul className="space-y-1 text-xs text-gray-600">
+                  {[
+                    "Over 35 years of experience",
+                    "Certified professionals",
+                    "High-quality materials",
+                    "Lifetime warranty",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-1">
+                      <div className="h-1 w-1 rounded-full bg-[#C03140]" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </motion.div>
             </motion.div>
@@ -270,10 +254,91 @@ export default function ContactPage() {
                       animate={{ opacity: 1 }}
                       className="text-green-600 text-center"
                     >
-                      Thank you for your message! We&apos;ll get back to you soon.
+                      Thank you for your message! We&apos;ll get back to you
+                      soon.
                     </motion.p>
                   )}
                 </form>
+              </div>
+
+              {/* Service Areas */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="mt-8 p-6 bg-white rounded-xl shadow-lg border border-gray-100"
+              >
+                <h3 className="text-xl font-semibold text-[#054177] mb-4">
+                  Our Service Areas
+                </h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {[
+                    "Juno Beach",
+                    "Lake Worth",
+                    "Wellington",
+                    "North Palm Beach",
+                    "Boca Raton",
+                    "Delray Beach",
+                    "Palm Beach Gardens",
+                    "Jupiter Island",
+                    "Tequesta",
+                    "West Palm Beach",
+                  ].map((area, index) => (
+                    <div
+                      key={area}
+                      className="flex items-center gap-2 text-gray-600"
+                    >
+                      <div className="h-1.5 w-1.5 rounded-full bg-[#C03140]" />
+                      <span>{area}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-[#054177] relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center text-white">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl font-semibold">
+                Ready to Transform Your Windows?
+              </h2>
+              <p className="text-white/80">
+                Contact us today for a free consultation and discover how our
+                window film solutions can enhance your space.
+              </p>
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+                <a
+                  href="tel:+17728880866"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-[#C03140] px-6 py-3 text-sm font-medium text-white shadow transition-colors hover:bg-[#C03140]/90"
+                >
+                  <Phone className="h-4 w-4" />
+                  Palm City: (772) 888-0866
+                </a>
+                <a
+                  href="tel:+15615414005"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-[#C03140] px-6 py-3 text-sm font-medium text-white shadow transition-colors hover:bg-[#C03140]/90"
+                >
+                  <Phone className="h-4 w-4" />
+                  North Palm Beach: (561) 541-4005
+                </a>
+                <a
+                  href="mailto:ssmith@americanglasscoatings.com"
+                  className="inline-flex items-center justify-center rounded-md border-2 border-white bg-transparent px-6 py-3 text-sm font-medium text-white shadow transition-colors hover:bg-white hover:text-[#054177]"
+                >
+                  <Mail className="mr-2 h-4 w-4" />
+                  Email Us
+                </a>
               </div>
             </motion.div>
           </div>

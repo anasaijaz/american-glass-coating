@@ -5,6 +5,8 @@ import { Shield, Sun, Sailboat, Eye, ThermometerSun } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/page-hero";
+import HeroJPG from "@/assets/stuart-project/joe_peschi/IMG11A.jpg";
+import ImagePNG from "@/assets/services/yacht.jpg";
 
 const benefits = [
   {
@@ -78,7 +80,7 @@ export default function MarineWindowFilm() {
       <PageHero
         title="Marine Window Films"
         subtitle="Premium window tinting solutions for ships, yachts, boats, and cruise vessels"
-        backgroundImage="https://sjc.microlink.io/uIUohP8EWP6e1z0b5gvtg6CnSvye-Pw4RC4WCVbEeEvJwwde6_I5cbJ_3bCJt5KaNHbnP1_5J_6BEjbdeH18Sw.jpeg"
+        backgroundImage={HeroJPG}
         ctaButtons={[
           {
             text: "GET A FREE QUOTE",
@@ -129,7 +131,7 @@ export default function MarineWindowFilm() {
               className="relative aspect-video rounded-lg overflow-hidden shadow-xl"
             >
               <Image
-                src="https://picsum.photos/800/450?random=40"
+                src={ImagePNG}
                 alt="Marine window tinting installation"
                 fill
                 className="object-cover"

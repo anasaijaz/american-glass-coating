@@ -95,7 +95,7 @@ export default function ClientLogosSection() {
           </h2>
           <div className="w-24 h-1 bg-[#C03140] mx-auto mb-6"></div>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            For over 35 years, American Glass Coatings has provided premium
+            For over 45 years, American Glass Coatings has provided premium
             window film solutions to some of the most prestigious brands and
             properties in South Florida.
           </p>

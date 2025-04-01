@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, Star } from "lucide-react";
+import Marquee from "react-fast-marquee";
+import Image from "next/image";
+import projects from "@/lib/stuart-projects.js";
 
 const testimonials = [
   {
@@ -31,14 +34,114 @@ const testimonials = [
   },
 ];
 
+// Extract all "after" images from projects
+const afterImages = projects.map((project) => project.after.src);
+// Add some additional images from the project images array to have more variety
+const additionalImages = projects.flatMap((project) =>
+  project.images.slice(0, 2).map((img) => img.src)
+);
+// Combine all images
+const allImages = [...afterImages, ...additionalImages];
+
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-b bg-[#054177] to-black">
+    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#054177] to-[#032a4e]">
       {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
+      </div>
 
-      <div className="container mx-auto px-4">
+      {/* Background Marquee - Top */}
+      <div className="absolute top-0 left-0 right-0 w-full overflow-hidden opacity-5">
+        <Marquee gradient={false} speed={20}>
+          <div className="flex gap-4 py-4">
+            {allImages
+              .slice(0, Math.ceil(allImages.length / 3))
+              .map((image, index) => (
+                <div
+                  key={`top-${index}`}
+                  className="relative h-32 w-48 overflow-hidden"
+                >
+                  <Image
+                    src={image}
+                    alt="Project showcase"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+          </div>
+        </Marquee>
+      </div>
+
+      {/* Background Marquee - Middle */}
+      <div className="absolute top-1/2 left-0 right-0 w-full overflow-hidden opacity-5 transform -translate-y-1/2">
+        <Marquee gradient={false} speed={15} direction="right">
+          <div className="flex gap-4 py-4">
+            {allImages
+              .slice(
+                Math.ceil(allImages.length / 3),
+                Math.ceil((allImages.length * 2) / 3)
+              )
+              .map((image, index) => (
+                <div
+                  key={`middle-${index}`}
+                  className="relative h-40 w-60 overflow-hidden"
+                >
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt="Project showcase"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+          </div>
+        </Marquee>
+      </div>
+
+      {/* Background Marquee - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden opacity-5">
+        <Marquee gradient={false} speed={20} direction="right">
+          <div className="flex gap-4 py-4">
+            {allImages
+              .slice(Math.ceil((allImages.length * 2) / 3))
+              .map((image, index) => (
+                <div
+                  key={`bottom-${index}`}
+                  className="relative h-32 w-48 overflow-hidden"
+                >
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    alt="Project showcase"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+          </div>
+        </Marquee>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Heading and Description */}
           <div className="relative">
@@ -57,25 +160,6 @@ export default function Testimonials() {
                 stories of transformed spaces and unparalleled service in window
                 film installation.
               </p>
-
-              {/* Navigation Dots */}
-              <div className="flex flex-row gap-3">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className="w-1 h-8 relative"
-                  >
-                    <span
-                      className={`absolute left-0 w-1 rounded-full transition-all duration-300 ${
-                        index === currentIndex
-                          ? "h-4 bg-[#C03140]"
-                          : "h-4 bg-gray-600 hover:bg-gray-400"
-                      }`}
-                    />
-                  </button>
-                ))}
-              </div>
             </motion.div>
           </div>
 

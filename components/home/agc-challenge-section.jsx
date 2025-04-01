@@ -178,7 +178,7 @@ export default function AGCChallengeSection() {
                   window film solutions.
                 </p>
 
-                <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-[#054177]">
+                <div className="bg-white p-6 rounded-none shadow-lg border-l-4 border-[#054177]">
                   <h3 className="text-xl font-semibold mb-4 text-[#054177]">
                     Why Take The Challenge?
                   </h3>
@@ -231,7 +231,7 @@ export default function AGCChallengeSection() {
           </motion.div>
 
           {/* Right Column - Quiz */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
+          <div className="bg-white relative rounded-none shadow-lg p-8 border border-[#054177]">
             <AnimatePresence mode="wait">
               {!showResult ? (
                 <motion.div
@@ -339,7 +339,7 @@ export default function AGCChallengeSection() {
                       </motion.div>
                       <motion.a
                         href="tel:5615414005"
-                        className="inline-flex items-center justify-center gap-2 bg-[#C03140] text-white px-8 py-4 rounded-md hover:bg-[#C03140]/90 transition-colors"
+                        className="inline-flex items-center justify-center gap-2 bg-[#C03140] text-white px-8 py-4 rounded-none hover:bg-[#C03140]/90 transition-colors"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
@@ -363,9 +363,9 @@ export default function AGCChallengeSection() {
                       animate={{ opacity: 1, y: 0 }}
                     >
                       <p className="text-lg text-gray-700">
-                        While you may not have immediate concerns, we&quot;d still
-                        love to show you how our solutions can enhance your
-                        property&quot;s comfort and value.
+                        While you may not have immediate concerns, we&quot;d
+                        still love to show you how our solutions can enhance
+                        your property&quot;s comfort and value.
                       </p>
                       <Button
                         onClick={() => {
@@ -401,7 +401,7 @@ export default function AGCChallengeSection() {
           className="mt-20"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-none shadow-lg">
               <h4 className="font-semibold text-[#054177] mb-4 flex items-center text-lg">
                 <Sun className="h-5 w-5 mr-2" />
                 Energy & Efficiency
@@ -414,7 +414,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       EnergyStar.gov: Reducing Supplemental Loads
                     </span>
@@ -427,7 +426,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       American Council for an Energy-Efficient Economy
                     </span>
@@ -440,7 +438,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       Residential Energy Services Network (RESNET)
                     </span>
@@ -449,7 +446,7 @@ export default function AGCChallengeSection() {
               </ul>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-none shadow-lg">
               <h4 className="font-semibold text-[#054177] mb-4 flex items-center text-lg">
                 <FileText className="h-5 w-5 mr-2" />
                 Research & Standards
@@ -462,7 +459,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       Buildings.com: Low-e Glass vs Window Film Comparison
                     </span>
@@ -475,7 +471,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       U.S. Green Building Council
                     </span>
@@ -488,7 +483,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       National Fenestration Rating Council
                     </span>
@@ -497,7 +491,7 @@ export default function AGCChallengeSection() {
               </ul>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-none shadow-lg">
               <h4 className="font-semibold text-[#054177] mb-4 flex items-center text-lg">
                 <DollarSign className="h-5 w-5 mr-2" />
                 Financial Benefits
@@ -510,7 +504,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       Tax Credits, Rebates & Savings
                     </span>
@@ -523,7 +516,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       IRS.gov - Energy Incentives
                     </span>
@@ -532,7 +524,7 @@ export default function AGCChallengeSection() {
               </ul>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-none shadow-lg">
               <h4 className="font-semibold text-[#054177] mb-4 flex items-center text-lg">
                 <Link2 className="h-5 w-5 mr-2" />
                 Additional Resources
@@ -545,7 +537,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       The Green Destination
                     </span>
@@ -558,7 +549,6 @@ export default function AGCChallengeSection() {
                     rel="noopener noreferrer"
                     className="text-gray-700 hover:text-[#C03140] flex items-center gap-2 group"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#C03140] rounded-full group-hover:scale-150 transition-transform"></div>
                     <span className="group-hover:translate-x-1 transition-transform">
                       DOE-2: Building Energy Analysis
                     </span>

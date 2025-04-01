@@ -1,8 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Phone, Building2, Home, Sailboat, Bus } from "lucide-react";
+import {
+  Phone,
+  Building2,
+  Home,
+  Sailboat,
+  Sun,
+  Shield,
+  PaintBucket,
+  Palette,
+} from "lucide-react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import LogoPNG from "@/assets/common/logo.png";
 import Image from "next/image";
@@ -32,11 +42,32 @@ const serviceLinks = [
     description: "Specialized window tinting for boats and marine vessels",
     icon: Sailboat,
   },
+];
+
+const filmTypeLinks = [
   {
-    name: "Motorcoach Window Film",
-    href: "/services/motorcoach-window-film",
-    description: "Specialized window tinting for motorcoach and road vehicles",
-    icon: Bus,
+    name: "Solar & UV Film",
+    href: "/film-types#solar",
+    description: "Reduce heat and block harmful UV rays",
+    icon: Sun,
+  },
+  {
+    name: "Safety & Security Film",
+    href: "/film-types#safety",
+    description: "Enhance protection against break-ins and accidents",
+    icon: Shield,
+  },
+  {
+    name: "Anti-Graffiti Film",
+    href: "/film-types#antigraffiti",
+    description: "Protect surfaces from vandalism and damage",
+    icon: PaintBucket,
+  },
+  {
+    name: "Decorative Film",
+    href: "/film-types#decorative",
+    description: "Enhance privacy and aesthetics with stylish designs",
+    icon: Palette,
   },
 ];
 
@@ -44,8 +75,34 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    console.log("Menu toggled, isOpen:", !isOpen); // Debug log
   };
 
   const navLinks = [
@@ -58,11 +115,16 @@ export default function Navbar() {
     <header
       className={cn(
         "absolute left-0 right-0 top-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-black/90 shadow-lg" : "bg-transparent"
+        isOpen ? "bg-black/90 shadow-lg" : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
+        <div
+          className={cn(
+            "flex h-20 items-center justify-between transition-all",
+            isScrolled && "h-16"
+          )}
+        >
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -110,6 +172,40 @@ export default function Navbar() {
                   </HoverCardContent>
                 </HoverCard>
               </li>
+              {/* Film Types HoverCard */}
+              <li>
+                <HoverCard openDelay={0} closeDelay={0}>
+                  <HoverCardTrigger asChild>
+                    <Link
+                      href="/film-types"
+                      className="text-white transition-colors hover:text-[#C03140]"
+                    >
+                      Film Types
+                    </Link>
+                  </HoverCardTrigger>
+                  <HoverCardContent className="w-80" align="start">
+                    <div className="grid gap-4">
+                      {filmTypeLinks.map((filmType) => (
+                        <Link
+                          key={filmType.href}
+                          href={filmType.href}
+                          className="group grid grid-cols-[25px_1fr] items-start gap-2 rounded-md p-2 hover:bg-accent"
+                        >
+                          <filmType.icon className="h-5 w-5 text-[#C03140] group-hover:text-[#C03140]/70" />
+                          <div className="grid gap-1">
+                            <div className="text-sm font-medium leading-none group-hover:underline">
+                              {filmType.name}
+                            </div>
+                            <div className="line-clamp-2 text-sm text-muted-foreground">
+                              {filmType.description}
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
+              </li>
               {/* Regular Nav Links */}
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -141,20 +237,67 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button with SVG Animation */}
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-white z-[60]"
             onClick={toggleMenu}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <div className="w-6 h-6 relative">
+              {/* Animated Hamburger to X Icon */}
+              <motion.svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute inset-0"
+              >
+                {/* Top line */}
+                <motion.path
+                  d="M3 6h18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  animate={{
+                    d: isOpen ? "M6 18L18 6" : "M3 6h18",
+                    opacity: isOpen ? 1 : 1,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                {/* Middle line */}
+                <motion.path
+                  d="M3 12h18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  animate={{
+                    opacity: isOpen ? 0 : 1,
+                    x: isOpen ? 20 : 0,
+                  }}
+                  transition={{ duration: 0.2 }}
+                />
+                {/* Bottom line */}
+                <motion.path
+                  d="M3 18h18"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  animate={{
+                    d: isOpen ? "M6 6L18 18" : "M3 18h18",
+                    opacity: isOpen ? 1 : 1,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.svg>
+            </div>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Simplified for debugging */}
       {isOpen && (
-        <div className="absolute left-0 right-0 top-20 bg-black/95 md:hidden">
+        <div className="fixed inset-0 top-20 bg-black/95 z-[55] md:hidden overflow-auto">
           <nav className="container mx-auto px-4 py-5">
             <ul className="flex flex-col space-y-4">
               {/* Services Section in Mobile */}
@@ -176,6 +319,31 @@ export default function Navbar() {
                         >
                           <service.icon className="h-4 w-4" />
                           {service.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+              {/* Film Types Section in Mobile */}
+              <li>
+                <div className="space-y-2">
+                  <Link
+                    href="/film-types"
+                    className="block text-lg text-white transition-colors hover:text-[#C03140]"
+                  >
+                    Film Types
+                  </Link>
+                  <ul className="pl-4 space-y-2">
+                    {filmTypeLinks.map((filmType) => (
+                      <li key={filmType.href}>
+                        <Link
+                          href={filmType.href}
+                          className="flex items-center gap-2 py-2 text-sm text-white/80 transition-colors hover:text-[#C03140]"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <filmType.icon className="h-4 w-4" />
+                          {filmType.name}
                         </Link>
                       </li>
                     ))}

@@ -16,7 +16,6 @@ import AmericanLogo from "@/assets/common/logo.png";
 
 const serviceLinks = [
   { name: "Solar Window Film", href: "/services/solar-window-film" },
-  { name: "Motorcoach Window Film", href: "/services/motorcoach-window-film" },
   {
     name: "Residential Window Film",
     href: "/services/residential-window-film",
@@ -48,7 +47,6 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Contact", href: "/contact" },
-  { name: "Resources", href: "/resources" },
   { name: "Photo Gallery", href: "/gallery" },
 ];
 
@@ -69,44 +67,50 @@ export default function Footer() {
             <div className="space-y-6">
               <Link href="/" className="flex items-center">
                 <Image
-                  src={AmericanLogo}
+                  src={AmericanLogo || "/placeholder.svg"}
                   className="bg-white p-2"
                   width={128}
                   height={32}
+                  alt="American glass coating logos"
                 />
               </Link>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-[#C03140] flex-shrink-0 mt-1" />
-                  <div>
-                    <p>123 Main Street</p>
-                    <p>West Palm Beach, FL 33401</p>
-                  </div>
+                <div className="space-y-2">
+                  <a
+                    href="tel:7728880866"
+                    className="flex items-center gap-3 hover:text-[#C03140] transition-colors"
+                  >
+                    <Phone className="h-5 w-5 text-[#C03140]" />
+                    <span>Palm City: (772) 888-0866</span>
+                  </a>
+
+                  <a
+                    href="tel:5615414005"
+                    className="flex items-center gap-3 hover:text-[#C03140] transition-colors"
+                  >
+                    <Phone className="h-5 w-5 text-[#C03140]" />
+                    <span>North Palm Beach: (561) 541-4005</span>
+                  </a>
                 </div>
 
                 <a
-                  href="tel:5615414005"
-                  className="flex items-center gap-3 hover:text-[#C03140] transition-colors"
-                >
-                  <Phone className="h-5 w-5 text-[#C03140]" />
-                  <span>(561) 541-4005</span>
-                </a>
-
-                <a
-                  href="mailto:info@americanglasscoatings.com"
+                  href="mailto:ssmith@americanglasscoatings.com"
                   className="flex items-center gap-3 hover:text-[#C03140] transition-colors"
                 >
                   <Mail className="h-5 w-5 text-[#C03140]" />
-                  <span>info@americanglasscoatings.com</span>
+                  <span>ssmith@americanglasscoatings.com</span>
                 </a>
+
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-[#C03140] flex-shrink-0 mt-1" />
+                  <span>Mobile Service - We Come To You!</span>
+                </div>
 
                 <div className="flex items-start gap-3">
                   <Clock className="h-5 w-5 text-[#C03140] flex-shrink-0 mt-1" />
                   <div>
                     <p>Monday - Friday: 8AM - 6PM</p>
-                    <p>Saturday: 9AM - 2PM</p>
-                    <p>Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -224,21 +228,35 @@ export default function Footer() {
             "@type": "LocalBusiness",
             name: "American Glass Coatings",
             image: "https://americanglasscoatings.com/logo.png",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "123 Main Street",
-              addressLocality: "West Palm Beach",
-              addressRegion: "FL",
-              postalCode: "33401",
-              addressCountry: "US",
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: 26.7153,
-              longitude: -80.0534,
-            },
+            description:
+              "Professional window film installation for residential, commercial, marine, and recreational vehicles throughout South Florida.",
             url: "https://americanglasscoatings.com",
-            telephone: "+15615414005",
+            telephone: ["+17728880866", "+15615414005"],
+            email: "ssmith@americanglasscoatings.com",
+            areaServed: [
+              {
+                "@type": "City",
+                name: "Palm City",
+                "@id": "https://en.wikipedia.org/wiki/Palm_City,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "North Palm Beach",
+                "@id":
+                  "https://en.wikipedia.org/wiki/North_Palm_Beach,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "West Palm Beach",
+                "@id": "https://en.wikipedia.org/wiki/West_Palm_Beach,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Boca Raton",
+                "@id": "https://en.wikipedia.org/wiki/Boca_Raton,_Florida",
+              },
+              // Additional cities could be added here
+            ],
             openingHoursSpecification: [
               {
                 "@type": "OpeningHoursSpecification",
@@ -251,12 +269,6 @@ export default function Footer() {
                 ],
                 opens: "08:00",
                 closes: "18:00",
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: "Saturday",
-                opens: "09:00",
-                closes: "14:00",
               },
             ],
             sameAs: [

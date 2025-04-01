@@ -14,6 +14,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/page-hero";
+import HeroJPG from "@/assets/stuart-project/palm_beach_lost_tree/20180831_093748.jpg";
+import ImagePNG from "@/assets/stuart-project/house_of_wellington/20180707_111011.jpg";
 
 const filmTypes = [
   {
@@ -89,7 +91,7 @@ export default function ResidentialWindowFilm() {
       <PageHero
         title="Residential Window Film Solutions"
         subtitle="Enhance the comfort, efficiency, and privacy of your home"
-        backgroundImage="https://picsum.photos/1920/1080?random=30"
+        backgroundImage={HeroJPG}
         ctaButtons={[
           {
             text: "GET A FREE QUOTE",
@@ -122,15 +124,16 @@ export default function ResidentialWindowFilm() {
                   furnishings, and in the event of a break-in, glass windows are
                   the most vulnerable points in your home. Window Tint Film
                   enhances window safety, security, generates energy cost
-                  savings and also improves your home&apos;s overall appearance and
-                  style.
+                  savings and also improves your home&apos;s overall appearance
+                  and style.
                 </p>
                 <p>
-                  American Glass Coatings&apos; window tinting film for residential
-                  applications is designed to reject solar heat, reduce fading
-                  and add a valuable layer of protection to your home&apos;s windows.
-                  Best of all, these window films can provide all these benefits
-                  without changing the look of your home.
+                  American Glass Coatings&apos; window tinting film for
+                  residential applications is designed to reject solar heat,
+                  reduce fading and add a valuable layer of protection to your
+                  home&apos;s windows. Best of all, these window films can
+                  provide all these benefits without changing the look of your
+                  home.
                 </p>
               </div>
             </motion.div>
@@ -142,7 +145,7 @@ export default function ResidentialWindowFilm() {
               className="relative aspect-video rounded-lg overflow-hidden shadow-xl"
             >
               <Image
-                src="https://picsum.photos/800/450?random=31"
+                src={ImagePNG}
                 alt="Residential window tinting installation"
                 fill
                 className="object-cover"
@@ -217,8 +220,9 @@ export default function ResidentialWindowFilm() {
               Our Trusted Associations
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto">
-              We&apos;re proud to be associated with leading industry organizations
-              that maintain the highest standards in window film installation.
+              We&apos;re proud to be associated with leading industry
+              organizations that maintain the highest standards in window film
+              installation.
             </p>
           </motion.div>
 
