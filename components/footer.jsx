@@ -8,14 +8,13 @@ import {
   Clock,
   MapPin,
   Facebook,
-  Instagram,
-  Linkedin,
   ChevronRight,
 } from "lucide-react";
 import AmericanLogo from "@/assets/common/logo.png";
+import Affiliates from "@/assets/common/affiliate.png";
 
 const serviceLinks = [
-  { name: "Solar Window Film", href: "/services/solar-window-film" },
+  { name: "Solar Window Film", href: "/film-types" },
   {
     name: "Residential Window Film",
     href: "/services/residential-window-film",
@@ -24,10 +23,10 @@ const serviceLinks = [
   { name: "Commercial Window Film", href: "/services/commercial-window-film" },
   {
     name: "Safety & Security Film",
-    href: "/services/safety-security-window-film",
+    href: "/film-types",
   },
-  { name: "Anti-Graffiti Film", href: "/services/anti-graffiti-window-film" },
-  { name: "Decorative Window Film", href: "/services/decorative-window-film" },
+  { name: "Anti-Graffiti Film", href: "/film-types" },
+  { name: "Decorative Window Film", href: "/film-types" },
 ];
 
 const locationLinks = [
@@ -51,29 +50,43 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "#" },
-  { name: "Instagram", icon: Instagram, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "https://www.facebook.com/AmericanGlassCoatings/",
+  },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-[#054177] text-white">
+      {/* Affiliates Banner */}
+      <div className="w-full bg-white py-6">
+        <div className="container mx-auto px-4">
+          <div className="relative w-full" style={{ aspectRatio: "7/1" }}>
+            <Image
+              src={Affiliates}
+              alt="American Glass Coatings affiliations and certifications"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+      </div>
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-3">
             <div className="space-y-6">
-              <Link href="/" className="flex items-center">
-                <Image
-                  src={AmericanLogo || "/placeholder.svg"}
-                  className="bg-white p-2"
-                  width={128}
-                  height={32}
-                  alt="American glass coating logos"
-                />
-              </Link>
+              <Image
+                src={AmericanLogo || "/placeholder.svg"}
+                className="bg-white p-2"
+                width={128}
+                height={32}
+                alt="American glass coating logos"
+              />
 
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -173,14 +186,14 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Service Areas</h3>
             <div className="grid grid-cols-2 gap-2">
               {locationLinks.map((link) => (
-                <Link
+                <p
                   key={link.href}
                   href={link.href}
                   className="hover:text-[#C03140] transition-colors inline-flex items-center gap-1 group"
                 >
                   <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   {link.name}
-                </Link>
+                </p>
               ))}
             </div>
           </div>
@@ -271,11 +284,7 @@ export default function Footer() {
                 closes: "18:00",
               },
             ],
-            sameAs: [
-              "https://www.facebook.com/americanglasscoatings",
-              "https://www.instagram.com/americanglasscoatings",
-              "https://www.linkedin.com/company/american-glass-coatings",
-            ],
+            sameAs: ["https://www.facebook.com/americanglasscoatings"],
           }),
         }}
       />

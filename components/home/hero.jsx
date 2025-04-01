@@ -33,12 +33,12 @@ export default function Hero() {
       title: "Marine Applications",
       description: "Specialized coatings for boats and yachts",
     },
-    {
-      url: MotorCoachPNG,
-      alt: "Motor coach with window tinting",
-      title: "Automotive Tinting",
-      description: "Premium window films for vehicles and RVs",
-    },
+    // {
+    //   url: MotorCoachPNG,
+    //   alt: "Motor coach with window tinting",
+    //   title: "Automotive Tinting",
+    //   description: "Premium window films for vehicles and RVs",
+    // },
   ];
 
   useEffect(() => {
@@ -142,7 +142,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className="mb-4 sm:mb-8 text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-white relative z-10">
-              South Florida&quot;s most trusted window film specialists for
+              South Florida&apos;s most trusted window film specialists for
               residential, commercial, and marine applications.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 relative z-10">

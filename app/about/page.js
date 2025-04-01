@@ -9,13 +9,13 @@ import TrustIndicatorsSection from "@/components/about/trust-indicator-section";
 export const metadata = {
   title: "About Us — American Glass Coatings",
   description:
-    "Based in South Florida, the American Glass Coatings team has been proudly serving customers for over 35 years with high-quality window film installations for residential, commercial, marine and recreational vehicles.",
+    "Based in South Florida, the American Glass Coatings team has been proudly serving customers for over 45 years with high-quality window film installations for residential, commercial, marine and recreational vehicles.",
   openGraph: {
     type: "website",
     url: "https://www.americanglasscoatings.com/about",
     title: "About Us — American Glass Coatings",
     description:
-      "Based in South Florida, the American Glass Coatings team has been proudly serving customers for over 35 years with high-quality window film installations for residential, commercial, marine and recreational vehicles.",
+      "Based in South Florida, the American Glass Coatings team has been proudly serving customers for over 45 years with high-quality window film installations for residential, commercial, marine and recreational vehicles.",
     images: [
       {
         url: "/og_image.png",
@@ -31,7 +31,7 @@ export const metadata = {
     url: "https://www.americanglasscoatings.com/about-us",
     title: "About Us — American Glass Coatings",
     description:
-      "Based in South Florida, the American Glass Coatings team has been proudly serving customers for over 35 years with high-quality window film installations for residential, commercial, marine and recreational vehicles.",
+      "Based in South Florida, the American Glass Coatings team has been proudly serving customers for over 45 years with high-quality window film installations for residential, commercial, marine and recreational vehicles.",
     images: ["/og_image.png"],
   },
 };
@@ -41,7 +41,7 @@ export default function AboutPage() {
     <main>
       <PageHero
         title="About American Glass Coatings"
-        subtitle="Over 35 Years of Excellence in Window Film Solutions"
+        subtitle="Over 45 Years of Excellence in Window Film Solutions"
         backgroundImage={AboutJPG}
       />
 
