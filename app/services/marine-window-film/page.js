@@ -5,7 +5,7 @@ import { Shield, Sun, Sailboat, Eye, ThermometerSun } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/page-hero";
-import HeroJPG from "@/assets/stuart-project/joe_peschi/image.jpg";
+import HeroJPG from "@/assets/stuart-project/biotest/20181010_093500.jpg";
 import ImagePNG from "@/assets/services/yacht.jpg";
 
 const benefits = [
