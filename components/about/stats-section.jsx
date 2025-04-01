@@ -5,7 +5,7 @@ import { Shield, Award, MapPin, CheckCircle2 } from "lucide-react";
 
 const stats = [
   {
-    value: "35+",
+    value: "45+",
     label: "Years of Experience",
     icon: Shield,
   },

@@ -283,7 +283,7 @@ export default function FilmTypes() {
                     </div>
 
                     {/* CTA */}
-                    <div>
+                    {/* <div>
                       <Link
                         href={`/film-types/${film.id}`}
                         className="inline-flex items-center text-[#054177] font-medium hover:text-[#C03140] transition-colors"
@@ -291,7 +291,7 @@ export default function FilmTypes() {
                         Learn more about {film.title}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </motion.div>

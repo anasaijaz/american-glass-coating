@@ -152,7 +152,7 @@ export default function ContactPageComponent() {
                 </h3>
                 <ul className="space-y-1 text-xs text-gray-600">
                   {[
-                    "Over 35 years of experience",
+                    "Over 45 years of experience",
                     "Certified professionals",
                     "High-quality materials",
                     "Lifetime warranty",
