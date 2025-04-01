@@ -172,12 +172,12 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <ReactGoogleReviews
             layout="badge"
             featurableId={featurableWidgetId}
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );
