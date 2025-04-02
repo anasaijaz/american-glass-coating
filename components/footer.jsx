@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import AmericanLogo from "@/assets/common/logo.png";
 import Affiliates from "@/assets/common/affiliate.png";
+import { motion } from "framer-motion";
+import WebeaseLogo from "@/assets/webease/logo.png";
 
 const serviceLinks = [
   { name: "Solar Window Film", href: "/film-types" },
@@ -65,7 +67,7 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="relative w-full" style={{ aspectRatio: "7/1" }}>
             <Image
-              src={Affiliates}
+              src={Affiliates || "/placeholder.svg"}
               alt="American Glass Coatings affiliations and certifications"
               fill
               className="object-contain"
@@ -204,10 +206,44 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-white/60">
-              © {new Date().getFullYear()} American Glass Coatings. All rights
-              reserved.
-            </p>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <p className="text-sm text-white/60">
+                © {new Date().getFullYear()} American Glass Coatings. All rights
+                reserved.
+              </p>
+
+              <div className="flex items-center gap-2">
+                <p className="text-sm text-white/60">
+                  Website by{" "}
+                  <Link
+                    href="https://webease.tech"
+                    className="hover:text-white transition-colors underline"
+                    target="_blank"
+                  >
+                    webease.tech
+                  </Link>
+                </p>
+                <motion.div
+                  animate={{
+                    y: [0, -8, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Image
+                    src={WebeaseLogo}
+                    alt="Webease Tech Logo"
+                    width={24}
+                    height={24}
+                    className="rounded-sm"
+                  />
+                </motion.div>
+              </div>
+            </div>
+
             <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60">
               <Link
                 href="/privacy-policy"
