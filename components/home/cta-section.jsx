@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Phone, Shield, Sun, Timer, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
-import CTAPersonPNG from "@/assets/home/person.png";
+import CTAPersonPNG from "@/assets/home/person-with-background.png";
 import CTAPersonWithBackgroundPNG from "@/assets/home/person-with-background.png";
 
 const benefits = [
