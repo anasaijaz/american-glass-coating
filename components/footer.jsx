@@ -32,16 +32,34 @@ const serviceLinks = [
 ];
 
 const locationLinks = [
-  { name: "Boca Raton", href: "/locations/boca-raton" },
-  { name: "Juno Beach", href: "/locations/juno-beach" },
-  { name: "Wellington", href: "/locations/wellington" },
-  { name: "Lake Worth", href: "/locations/lake-worth" },
-  { name: "North Palm Beach", href: "/locations/north-palm-beach" },
-  { name: "Palm Beach Gardens", href: "/locations/palm-beach-gardens" },
-  { name: "Delray Beach", href: "/locations/delray-beach" },
-  { name: "Jupiter Island", href: "/locations/jupiter-island" },
-  { name: "Tequesta", href: "/locations/tequesta" },
-  { name: "West Palm Beach", href: "/locations/west-palm-beach" },
+  { name: "Juno Beach", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  {
+    name: "North Palm Beach",
+    href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA",
+  },
+  {
+    name: "Palm Beach Gardens",
+    href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA",
+  },
+  { name: "Jupiter Island", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  { name: "Tequesta", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  {
+    name: "West Palm Beach",
+    href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA",
+  },
+  { name: "Port St. Lucie", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  {
+    name: "Hutchinson Island",
+    href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA",
+  },
+  { name: "Sewalls Point", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  { name: "Stuart", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  { name: "Palm City", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  { name: "Hobe Sound", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  { name: "Jupiter", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  { name: "Abacoa", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  { name: "Singer Island", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
+  { name: "Palm Beach", href: "https://maps.app.goo.gl/Lmyv2TsxEnYcsAFQA" },
 ];
 
 const quickLinks = [
@@ -301,10 +319,72 @@ export default function Footer() {
               },
               {
                 "@type": "City",
-                name: "Boca Raton",
-                "@id": "https://en.wikipedia.org/wiki/Boca_Raton,_Florida",
+                name: "Juno Beach",
+                "@id": "https://en.wikipedia.org/wiki/Juno_Beach,_Florida",
               },
-              // Additional cities could be added here
+              {
+                "@type": "City",
+                name: "Palm Beach Gardens",
+                "@id":
+                  "https://en.wikipedia.org/wiki/Palm_Beach_Gardens,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Jupiter Island",
+                "@id": "https://en.wikipedia.org/wiki/Jupiter_Island,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Tequesta",
+                "@id": "https://en.wikipedia.org/wiki/Tequesta,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Palm Beach",
+                "@id": "https://en.wikipedia.org/wiki/Palm_Beach,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Jupiter",
+                "@id": "https://en.wikipedia.org/wiki/Jupiter,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Port St. Lucie",
+                "@id": "https://en.wikipedia.org/wiki/Port_St._Lucie,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Hutchinson Island",
+                "@id":
+                  "https://en.wikipedia.org/wiki/Hutchinson_Island_South,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Sewalls Point",
+                "@id":
+                  "https://en.wikipedia.org/wiki/Sewall%27s_Point,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Stuart",
+                "@id": "https://en.wikipedia.org/wiki/Stuart,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Hobe Sound",
+                "@id": "https://en.wikipedia.org/wiki/Hobe_Sound,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Abacoa",
+                "@id": "https://en.wikipedia.org/wiki/Abacoa,_Florida",
+              },
+              {
+                "@type": "City",
+                name: "Singer Island",
+                "@id": "https://en.wikipedia.org/wiki/Singer_Island",
+              },
             ],
             openingHoursSpecification: [
               {

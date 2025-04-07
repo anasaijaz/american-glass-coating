@@ -6,6 +6,7 @@ import { Quote, Star } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import projects from "@/lib/stuart-projects.js";
+import houseTinting from "@/assets/home/person-with-background.png";
 
 const testimonials = [
   {
@@ -35,7 +36,9 @@ const testimonials = [
 ];
 
 // Extract all "after" images from projects
-const afterImages = projects.map((project) => project.after.src);
+const afterImages = projects.map(
+  (project) => project.after?.src || houseTinting.src
+);
 // Add some additional images from the project images array to have more variety
 const additionalImages = projects.flatMap((project) =>
   project.images.slice(0, 2).map((img) => img.src)

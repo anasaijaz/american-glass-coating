@@ -174,9 +174,9 @@ export default function NotFound() {
               </span>
               {[
                 "Palm Beach",
-                "Boca Raton",
-                "Wellington",
                 "Jupiter",
+                "West Palm Beach",
+                "Palm Beach Gardens",
                 "South Florida",
               ].map((area, index) => (
                 <span key={area}>

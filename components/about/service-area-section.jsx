@@ -5,15 +5,21 @@ import { MapPin } from "lucide-react";
 
 const serviceAreas = [
   "Juno Beach",
-  "Lake Worth",
-  "Wellington",
   "North Palm Beach",
-  "Boca Raton",
-  "Delray Beach",
   "Palm Beach Gardens",
   "Jupiter Island",
   "Tequesta",
   "West Palm Beach",
+  "Palm Beach",
+  "Jupiter",
+  "Abacoa",
+  "Singer Island",
+  "Port St. Lucie",
+  "Hutchinson Island",
+  "Sewalls Point",
+  "Stuart",
+  "Palm City",
+  "Hobe Sound",
 ];
 
 export default function ServiceAreasSection() {

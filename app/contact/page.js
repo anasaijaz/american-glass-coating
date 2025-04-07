@@ -274,15 +274,15 @@ export default function ContactPageComponent() {
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {[
                     "Juno Beach",
-                    "Lake Worth",
-                    "Wellington",
                     "North Palm Beach",
-                    "Boca Raton",
-                    "Delray Beach",
                     "Palm Beach Gardens",
                     "Jupiter Island",
                     "Tequesta",
                     "West Palm Beach",
+                    "Palm Beach",
+                    "Jupiter",
+                    "Port St. Lucie",
+                    "Stuart",
                   ].map((area, index) => (
                     <div
                       key={area}
