@@ -23,7 +23,7 @@ export async function POST(request) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: "contact@denshees.com",
-      to: ["anaz.aijaz@gmail.com"],
+      to: ["ssmith@americanglasscoatings.com"],
       subject: `New Contact Form: ${subject}`,
       react: EmailTemplate({ name, email, phone, subject, message }),
     });
