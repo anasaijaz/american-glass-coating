@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Send, Clock } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Send,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,22 +23,48 @@ export default function ContactPageComponent() {
     name: "",
     email: "",
     phone: "",
+    subject: "Website Inquiry", // Default subject
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("error" > "idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
 
     try {
-      // Add your form submission logic here
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulated API call
-      setSubmitSuccess(true);
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setSubmitStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "Website Inquiry",
+        message: "",
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
+      setErrorMessage(
+        error.message || "Something went wrong. Please try again."
+      );
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -220,6 +254,19 @@ export default function ContactPageComponent() {
                   </div>
 
                   <div className="space-y-2">
+                    <Label htmlFor="subject">Subject</Label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="What is this regarding?"
+                      required
+                      className="border-gray-200 focus:border-[#054177] focus:ring-[#054177]"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>
                     <Textarea
                       id="message"
@@ -248,16 +295,48 @@ export default function ContactPageComponent() {
                     )}
                   </Button>
 
-                  {submitSuccess && (
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="text-green-600 text-center"
-                    >
-                      Thank you for your message! We&apos;ll get back to you
-                      soon.
-                    </motion.p>
-                  )}
+                  {/* Animated Success/Error Messages */}
+                  <div className="h-16 relative">
+                    <AnimatePresence mode="wait">
+                      {submitStatus === "success" && (
+                        <motion.div
+                          key="success"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute inset-0 flex items-center justify-center p-4 rounded-lg bg-green-50 border border-green-200"
+                        >
+                          <div className="flex items-center gap-2 text-green-600">
+                            <CheckCircle className="h-5 w-5" />
+                            <span>
+                              Thank you for your message! We&apos;ll get back to
+                              you soon.
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
+
+                      {submitStatus === "error" && (
+                        <motion.div
+                          key="error"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.3 }}
+                          className="absolute inset-0 flex items-center justify-center p-4 rounded-lg bg-red-50 border border-red-200"
+                        >
+                          <div className="flex items-center gap-2 text-red-600">
+                            <AlertCircle className="h-5 w-5" />
+                            <span>
+                              {errorMessage ||
+                                "Something went wrong. Please try again."}
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 </form>
               </div>
 
